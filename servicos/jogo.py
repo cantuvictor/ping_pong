@@ -35,16 +35,15 @@ class Jogo:
         colidiu = self.Bola.VerificarColisao(self.Raquete1, self.Raquete2)
 
         if colidiu:
-            self.Audio.tocar_raquete()  # novo
+            self.Audio.tocar_raquete()
 
         if self.Bola.X <= 0:
             self.Placar.Jogador2 += 1
-            self.Audio.tocar_gol()      # novo
-            self.Bola.Resetar()
+            self.Audio.tocar_gol()
 
         if self.Bola.X >= ScreenWidth:
             self.Placar.Jogador1 += 1
-            self.Audio.tocar_gol()      # novo
+            self.Audio.tocar_gol()
             self.Bola.Resetar()
 
         if self.Raquete2.Rect.centery < self.Bola.Y:
