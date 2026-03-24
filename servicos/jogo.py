@@ -37,18 +37,19 @@ class Jogo:
         if colidiu:
             self.Audio.tocar_raquete()
 
-        if self.Bola.X <= 0:
+        if self.Bola.X < 0:
             self.Placar.Jogador2 += 1
             self.Audio.tocar_gol()
+            self.Bola.Resetar()
 
-        if self.Bola.X >= ScreenWidth:
+        elif self.Bola.X > ScreenWidth:
             self.Placar.Jogador1 += 1
             self.Audio.tocar_gol()
             self.Bola.Resetar()
 
-        if self.Raquete2.Rect.centery < self.Bola.Y:
+        if self.Raquete2.Rect.centery < self.Bola.Y - 5:
             self.Raquete2.MoverParaBaixo()
-        else:
+        elif self.Raquete2.Rect.centery > self.Bola.Y + 5:
             self.Raquete2.MoverParaCima()
 
     def Desenhar(self):
