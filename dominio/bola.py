@@ -31,12 +31,13 @@ class Bola:
             self.VelocidadeY *= -1
 
     def VerificarColisao(self, raquete1, raquete2):
-        rect = pygame.Rect(
-            self.X,
-            self.Y,
-            self.Tamanho,
-            self.Tamanho,
-        )
+        rect = pygame.Rect(self.X, self.Y, self.Tamanho, self.Tamanho)
+        colidiu = rect.colliderect(raquete1.Rect) or rect.colliderect(raquete2.Rect)
+
+        if colidiu:
+            self.VelocidadeX *= -1
+
+        return colidiu
 
         if rect.colliderect(raquete1.Rect) or \
            rect.colliderect(raquete2.Rect):
