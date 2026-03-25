@@ -13,8 +13,9 @@ VELOCIDADE = 5
 
 
 class Bola:
-    def __init__(self, tamanho=7):
+    def __init__(self, tamanho=7, cor=None):
         self.Tamanho = tamanho
+        self.Cor = cor or White
         self.Resetar()
 
     def Resetar(self):
@@ -78,4 +79,4 @@ class Bola:
         return colidiu
 
     def Desenhar(self, tela):
-        pygame.draw.circle(tela, White, (int(self.X), int(self.Y)), self.Tamanho)
+        pygame.draw.circle(tela, self.Cor, (int(self.X), int(self.Y)), self.Tamanho)
